@@ -9,7 +9,8 @@ const userRoutes = require('./routes/user');
 mongoose.connect('mongodb+srv://phpeco:OpenProjet6@cluster0.vcgf1.mongodb.net/Projet6?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex: true
     })
     .then(() => console.log('Connexion à MongoDb réussie !'))
     .catch(() => console.log('Connexion à MongoDb échouée !'));
