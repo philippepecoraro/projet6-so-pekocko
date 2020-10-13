@@ -5,7 +5,6 @@ const path = require('path');
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 
-//mongoose.set('useCreateIndex', true);
 mongoose.connect('mongodb+srv://phpeco:OpenProjet6@cluster0.vcgf1.mongodb.net/Projet6?retryWrites=true&w=majority',
     {
         useNewUrlParser: true,
