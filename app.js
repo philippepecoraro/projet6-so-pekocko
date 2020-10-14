@@ -6,8 +6,10 @@ const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
+require('dotenv').config();
 
-mongoose.connect('mongodb+srv://phpeco:OpenProjet6@cluster0.vcgf1.mongodb.net/Projet6?retryWrites=true&w=majority',
+
+mongoose.connect(process.env.MONGODB_URI,
     {
         useNewUrlParser: true,
         useUnifiedTopology: true,
