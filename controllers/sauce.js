@@ -14,7 +14,6 @@ exports.createSauce = (req, res, next) => {
 };
 exports.createLike = (req, res, next) => {
     if (req.body.like === -1) {
-        console.log('req.body.like:', req.body.like)
         Sauce.updateOne({ _id: req.params.id },
             {
                 $inc: { dislikes: 1 },
@@ -29,7 +28,6 @@ exports.createLike = (req, res, next) => {
             })
     }
     if (req.body.like === 0) {
-        console.log('req.body.like:', req.body.like)
         Sauce.findOne({ _id: req.params.id })
             .then((sauce) => {
                 if (sauce.usersLiked.includes(req.body.userId)) {
@@ -58,23 +56,21 @@ exports.createLike = (req, res, next) => {
                             res.status(404).json({ error });
                         });
                 }
-                console.log('req.body.userId:', req.body.userId);
             })
             .catch((error) => res.status(404).json({ error }))
     }
     if (req.body.like === 1) {
-        console.log('req.body.like:', req.body.like)
         Sauce.updateOne({ _id: req.params.id }, {
             $inc: { likes: 1 },
             $push: { usersLiked: req.body.userId },
             _id: req.params.id
         })
-            .then(() => {
-                res.status(201).json({ message: "Like pris en compte" });
-            })
-            .catch((error) => {
-                res.status(400).json({ error })
-            });
+        .then(() => {
+            res.status(201).json({ message: "Like pris en compte" });
+        })
+        .catch((error) => {
+            res.status(400).json({ error })
+        });
     }
 }
 exports.getOneSauce = (req, res, next) => {
