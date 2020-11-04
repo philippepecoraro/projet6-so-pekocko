@@ -19,3 +19,8 @@ Cloner le repository.
 Pour démarrer la partie backend taper: npm start, dans le dossier backend.
 
 Identifiants de connexion pour MongoDB dans fichier .env mis en gitignore.
+
+#############################################################################################################################################################
+Il faut savoir que'il 'est pas possible d'éffectuer plus  de 100 requêtes avec la même adresse IP.Fonction rateLimit sur max:100 dans le fichier app.js.
+Au bout de 100 requêtes  un "loader" apparait sur la page. Il faut arrêter le serveur  et le relancer  pour reprendre la  main.
+#############################################################################################################################################################
