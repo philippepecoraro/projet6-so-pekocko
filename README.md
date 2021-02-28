@@ -4,12 +4,12 @@
 
 Projet crée dans deux sous-dossiers.
 
-##Partie frontend
+##Partie frontend:
 Dossier frontend.
 
 Importer la partie frontend du projet à l'adresse suivante: https://github.com/OpenClassrooms-Student-Center/dwj-projet6
 
-Pour démarrer la partie frontend suivre les instructions du Readme.
+Pour démarrer la partie frontend, tapez: ng serve.
 
 ##Partie backend: Ce repository
 Dossier backend.

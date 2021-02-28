@@ -5,9 +5,7 @@ const path = require('path');
 const sauceRoutes = require('./routes/sauce');
 const userRoutes = require('./routes/user');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 require('dotenv').config();
-
 
 mongoose.connect(process.env.MONGODB_UTILISATEUR,
     {
@@ -26,14 +24,9 @@ app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
     next();
 });
-const limiter = rateLimit({
-    windowMs: 15 * 60 * 1000, //15 minutes
-    max: 100 // limiter chaque IP à 100 requêtes
-});
 
 app.use(bodyParser.json());
 
-app.use(limiter);
 app.use(helmet());
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/api/sauces', sauceRoutes);
